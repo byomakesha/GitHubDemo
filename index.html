@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Enterprise Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/稳定/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        /* Top Banner & Header */
+        .top-banner {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            height: 70px;
+        }
+        .logo-area h4 {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        /* Layout Setup */
+        .wrapper {
+            display: flex;
+            margin-top: 70px; /* Offset for fixed banner */
+        }
+        /* Left Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: #111c24;
+            color: #a3b1cc;
+            min-height: calc(100vh - 70px);
+            position: fixed;
+            left: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        .sidebar .nav-link {
+            color: #a3b1cc;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            color: #ffffff;
+            background-color: #1a2a3a;
+            border-left-color: #3b82f6;
+        }
+        /* Main Content Body */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 40px;
+            background-color: #f4f6f9;
+        }
+        /* Cards & Components */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            background: #ffffff;
+        }
+        .card-title {
+            color: #334155;
+            font-weight: 600;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        /* Custom Styling for Slick Slider */
+        .slider-container {
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .slide-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+        .slick-prev:before, .slick-next:before {
+            color: #1e3c72;
+            font-size: 24px;
+        }
+        .slick-prev { left: 25px; z-index: 1; }
+        .slick-next { right: 25px; z-index: 1; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .sidebar { width: 70px; }
+            .sidebar .nav-text { display: none; }
+            .main-content { margin-left: 70px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-banner">
+        <div class="logo-area d-flex align-items-center">
+            <i class="fa-solid fa-cubes fa-2x me-3 text-info"></i>
+            <h4>NEXUS Enterprise Solution</h4>
+        </div>
+        <div class="actions-area">
+            <button class="btn btn-outline-light px-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>Login
+            </button>
+        </div>
+    </header>
+
+    <div class="wrapper">
+         <nav class="sidebar">
+            <div class="py-4 text-center border-bottom border-secondary border-opacity-25">
+                <span class="fw-bold text-white nav-text">NAVIGATION</span>
+            </div>
+
+            <div class="sidebar-img-container">
+                <img src="./image/sandeep.png" alt="Sidebar Metric Graphic">
+            </div>
+
+            <div class="nav flex-column mt-2">
+                <a href="#" class="nav-link active">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span class="nav-text">Inventory Management</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <span class="nav-text">Outbound Shipping</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span class="nav-text">Analytics & Reports</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span class="nav-text">System Settings</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            
+            <div class="slider-container">
+                <div class="main-slider">
+                    <div class="slide-item">
+                        <img src="https://picsum.photos/id/180/1200/400" alt="Slide 1">
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://picsum.photos/id/48/1200/400" alt="Slide 2">
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://picsum.photos/id/20/1200/400" alt="Slide 3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card p-4">
+                        <h3 class="card-title text-primary"><i class="fa-solid fa-circle-info me-2"></i>System Integration Summary</h3>
+                        <p class="card-text text-muted">
+                            Welcome to the unified core management dashboard. This infrastructure aggregates enterprise tracking logs, logistics operational status, and active API routing metrics into an integrated system architecture. By utilizing non-blocking asynchronous processes, performance outputs remain stable over heavy concurrent schedules.
+                        </p>
+                        <p class="card-text text-muted">
+                            Data visualizations generated below outline operational efficiencies across regional distribution points. Real-time updates utilize telemetry mappings to establish automated throughput balancing, decreasing systemic dependency overheads across active pipeline runs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-7 col-md-12">
+                    <div class="card p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-chart-bar me-2 text-success"></i>Monthly Outbound Deliveries</h5>
+                        <div style="position: relative; height:300px;">
+                            <canvas id="myBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="card p-4">
+                        <h5 class="card-title"><i class="fa-solid fa-chart-pie me-2 text-warning"></i>Regional Distribution</h5>
+                        <div style="position: relative; height:300px;">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="fa-solid fa-lock me-2 text-info"></i>Secure Portal Access</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-submit="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Corporate Identity (Email)</label>
+                            <input type="email" class="form-placeholder form-control" placeholder="username@enterprise.com" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Password</label>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Authenticate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.
